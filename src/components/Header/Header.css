@@ -1,0 +1,45 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 60px;
+}
+
+button:focus {outline:0;}
+
+.bookNow {
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 8px;
+    background-color: lightcoral;
+    color: white;
+    border: none;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+}
+
+.fa-bars{
+    display: none;
+}
+
+@media(max-width: 375px){
+    header{
+        display: flex;
+        justify-content: flex-end;
+    }
+   
+    .link{
+        display: none;
+    }
+
+    .fa-bars{
+        display: block;
+        margin-right: 24px;
+    }
+}
