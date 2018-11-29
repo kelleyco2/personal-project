@@ -35,37 +35,40 @@ class ProductsForm extends Component {
 
     render(){
         return (
-            <div>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
 
+                Image
                 <input 
                 type='text'
                 placeholder='Image URL' 
                 onChange={(e) => this.handleChange(e.target.value, 'img')} 
                 value={this.state.img}
-                />
+                /><br/>
 
+                Title
                 <input 
                 type='text'
                 placeholder='Title'
                 onChange={(e) => this.handleChange(e.target.value, 'title')}
                 value={this.state.title}
-                />
+                /><br/>
 
+                Description
                 <textarea 
-                type='text'
                 cols='30'
                 rows='10'
                 onChange={(e) => this.handleChange(e.target.value, 'description')}
                 placeholder='Description'
                 value={this.state.description}
-                />
+                /><br/>
 
+                Price
                 <input 
                 type='number'
-                placeholder='price'
+                placeholder='Price'
                 onChange={(e) => this.handleChange(e.target.value, 'price')}
                 value={this.state.price}
-                />
+                /><br/>
 
                 <button onClick={this.handleClick}>
                     Add

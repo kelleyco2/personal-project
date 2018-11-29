@@ -16,6 +16,16 @@ module.exports = {
         })
     },
 
+    updateProduct: (req, res) => {
+        let db = req.app.get('db')
+        let { id } = req.params
+        let { img, title, description, price } = req.body
+
+        db.updateProducts( id, img, title, description, price ).then(response => {
+            res.status(200).send(response)
+        })
+    },
+
     deleteProduct: (req, res) => {
         let db = req.app.get('db')
         let { id } = req.params

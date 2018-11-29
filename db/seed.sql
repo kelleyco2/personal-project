@@ -1,7 +1,12 @@
-create table clients (
-    id serial primary key,
-    name varchar,
-    email varchar,
-    password varchar
-);
+-- create table clients (
+--     id serial primary key,
+--     name varchar,
+--     email varchar,
+--     password varchar
+-- );
 
+-- create table cart (
+--     id serial primary key,
+--     product_id integer references products(id),
+--     quantity integer
+-- );

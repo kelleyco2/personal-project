@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom' 
-import Axios from 'axios';
+import axios from 'axios';
 import { connect } from 'react-redux'
-import { clientLoggedIn, isAdmin } from '../../ducks/reducer'
+import { clientLoggedIn, isAdmin, getCart } from '../../ducks/reducer'
 import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
@@ -22,14 +22,22 @@ class Login extends Component {
     }
 
     handleClick = () => {
-        Axios.post('/auth/login', this.state).then(res => {
+        axios.post('/auth/login', this.state).then(res => {
             let client = res.data
             this.props.clientLoggedIn(client)
+            axios.get('/api/cart').then(res => {
+                this.props.getCart(res.data)
+              })
             if(client.email === 'maria@gmail.com'){
                 this.props.isAdmin()
             }
-            console.log('Logged In')
         })
+    }
+
+    handleKeyPress = (e) => {
+        if(e.key === 'Enter') {
+            this.handleClick()
+        }
     }
     render(){
         return this.props.isAuthenticated ?
@@ -48,6 +56,7 @@ class Login extends Component {
                 placeholder='Password' 
                 onChange={(e) => this.handleChange(e.target.value, 'password')} 
                 value={this.state.password}
+                onKeyPress={this.handleKeyPress}
                 /><br/>
 
                 <button onClick={this.handleClick}>Login</button>
@@ -68,4 +77,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, { clientLoggedIn, isAdmin })(Login)
+export default connect(mapStateToProps, { clientLoggedIn, isAdmin, getCart })(Login)

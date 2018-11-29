@@ -2,73 +2,197 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { setProducts } from '../../ducks/reducer'
+import { getCart } from '../../ducks/reducer'
+import './Products.css'
+import { Link } from 'react-router-dom' 
 
-class ProductsContainer extends Component {
+class Products extends Component {
+    constructor(){
+        super()
+
+        this.state = {
+            update: false,
+            img: '',
+            title: '',
+            description: '',
+            price: 0
+        }
+    }
+
     componentDidMount(){
-        axios.get('/api/products').then(res => {
-            this.props.setProducts(res.data)
+        axios.get('/api/cart').then(res => {
+            this.props.getCart(res.data)
         })
     }
 
-    render(){
-        return(
-            this.props.products.map(product => {
-                return this.props.isAdmin ?
-                    <div key={product.id}>
+    update = () => {
+        this.setState({
+            update: true
+        })
+    }
 
-                        <img src={product.img} alt='' height='250px' width='250px'/>
+    handleChange = (val, key) => {
+        let obj = {}
+        obj[key] = val
+        this.setState(obj)
+    }
+
+    resetState = () => {
+        this.setState({
+            update: false,
+            img: '',
+            title: '',
+            description: '',
+            price: 0
+        })
+    }
+
+    addToCart = (id) => {
+         axios.post(`/api/cart/${id}`).then(res => {
+            this.props.getCart(res.data)
+        })
+        this.componentDidMount()
+    }
+
+    render(){
+        let { product } = this.props
+        return(
+            this.props.isAdmin ?
+                    <div key={product.id} className='productBox'>
+
+                        <img src={product.img} alt='' height='250px' width='250px'/><br/>
 
                         <div>
                             {product.title}
-                        </div>
+                        </div><br/>
 
                         <div>
                             {product.description}
-                        </div>
+                        </div><br/>
 
                         <div>
                             ${product.price}
-                        </div>
+                        </div><br/>
 
-                        <button>
-                            Update
-                        </button>
+                        <div>
+                            {!this.state.update ?
+                                <button onClick={this.update}>
+                                    Update
+                                </button>:
+                                null
+                            }
+                        </div><br/>
 
-                        <button>
+                        <button 
+                        onClick={() => {
+                            axios.delete(`/api/products/${product.id}`).then(res => {
+                                this.props.setProducts(res.data)
+                            })
+                        }}>
                             Delete
+                        </button><br/>
+                        
+                        { this.state.update ?
+                        <div>
+                        <input 
+                        type='text'
+                        // value={product.img}
+                        placeholder='Image URL'
+                        onChange={(e) => this.handleChange(e.target.value, 'img')}
+                        />
+
+                        <input 
+                        type='text'
+                        // value={product.title}
+                        placeholder='Title'
+                        onChange={(e) => this.handleChange(e.target.value, 'title')}
+                        />
+
+                        <textarea 
+                        // value={product.description}
+                        placeholder='Description'
+                        onChange={(e) => this.handleChange(e.target.value, 'description')}
+                        />
+
+                        <input 
+                        type='number'
+                        // value={product.price}
+                        placeholder='Price'
+                        onChange={(e) => this.handleChange(e.target.value, 'price')}
+                        />
+
+                        <button onClick={() => {
+                            let { img, title, description, price } = this.state
+                            axios.put(`/api/products/${product.id}`, {img, title, description, price}).then(res => {
+                                this.props.setProducts(res.data)
+                            })
+                            this.setState({
+                                update: false,
+                                img: '',
+                                title: '',
+                                description: '',
+                                price: 0
+                            })
+                        }}>
+                            Submit
+                        </button>
+                        
+                        <button onClick={() => {
+                            this.setState({
+                                update: false
+                            })
+                        }}>
+                            Cancel
                         </button>
 
-                    </div>:
+                        </div>
+                    :
+                    null
+                    }
+                    </div>
+                    :
 
-                    <div key={product.id}>
+                    <div key={product.id} className='productBox'>
 
-                    <img src={product.img} alt='' height='250px' width='250px'/>
+                    <img src={product.img} alt='' height='250px' width='250px'/><br/>
 
                     <div>
                         {product.title}
-                    </div>
+                    </div><br/>
 
                     <div>
                         {product.description}
-                    </div>
+                    </div><br/>
 
                     <div>
                         ${product.price}
-                    </div>
+                    </div><br/>
 
-                    </div>
-                
-            })
+                    {
+                        !this.props.isAuthenticated ?
+                        <Link to='/login'>
+                            <button>
+                                Add to cart
+                            </button>
+                        </Link>
+                        :
+                        <button onClick={() => this.addToCart(product.id)}>
+                            Add to cart
+                        </button>
+                    }
+
+                    </div> 
         )
     }
 }
 
 function mapStateToProps(state){
-    let { products, isAdmin } = state
+    let { isAdmin, isAuthenticated, cart } = state
     return {
-        products,
-        isAdmin
+        isAdmin,
+        isAuthenticated,
+        cart
     }
 }
 
-export default connect(mapStateToProps, { setProducts })(ProductsContainer)
+export default connect(mapStateToProps, { setProducts, getCart })(Products)
