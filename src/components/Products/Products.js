@@ -79,7 +79,7 @@ class Products extends Component {
                         <div>
                             <div>
                                 {!this.state.update ?
-                                    <button onClick={this.update} className='w3-btn w3-black'>
+                                    <button onClick={this.update} className='w3-button w3-black w3-hover-pale-red'>
                                         Update
                                     </button>:
                                     null
@@ -131,7 +131,7 @@ class Products extends Component {
                                 updateClass: 'adminProductBoxUpdateFalse'
                             })
                         }}
-                        className='w3-btn w3-black'>
+                        className='w3-button w3-black w3-hover-pale-red'>
                             Submit
                         </button>
                         
@@ -141,7 +141,7 @@ class Products extends Component {
                                 updateClass: 'adminProductBoxUpdateFalse'
                             })
                         }}
-                        className='w3-btn w3-black'>
+                        className='w3-button w3-black w3-hover-pale-red'>
                             Cancel
                         </button>
 
@@ -171,12 +171,12 @@ class Products extends Component {
                     {
                         !this.props.isAuthenticated ?
                         <Link to='/login'>
-                            <button className='w3-btn w3-black'>
+                            <button className='w3-button w3-black w3-hover-pale-red'>
                                 Add to cart
                             </button>
                         </Link>
                         :
-                        <button onClick={() => this.addToCart(product.id)} className='w3-btn w3-black'>
+                        <button onClick={() => this.addToCart(product.id)} className='w3-button w3-black w3-hover-pale-red '>
                             Add to cart
                         </button>
                     }

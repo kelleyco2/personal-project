@@ -38,7 +38,7 @@ class Register extends Component {
                 <h1 style={{fontSize: '32px'}}>Register</h1>
 
                 <input 
-                className='w3-input'
+                className='w3-input '
                 placeholder='Name'
                 onChange={(e) => this.handleChange(e.target.value, 'name')}
                 value={this.state.name}/>
@@ -58,7 +58,7 @@ class Register extends Component {
                 value={this.state.password}
                 />
 
-                <button onClick={this.handleClick} className='w3-btn w3-black'>
+                <button onClick={this.handleClick} className='w3-button w3-black w3-hover-pale-red'>
                     Register
                 </button>
             </div>

@@ -1,34 +1,27 @@
 .heroImage {
+    background-image: url('//cdn.shopify.com/s/files/1/0163/4078/t/61/assets/homepage_hero_image_1.jpg?16574939919270013573');
     width: 100vw;
-    height: 90vh;
+    height: 78vh;
     background-size: cover;
-    filter: grayscale(100%) brightness(120%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 135px;
+    color: #FBFBFB;
 }
 
-.insta {
+.logo {
+    background-color: #FBFBFB;
+    height: 10vh;
+    /* font-family: 'Cedarville Cursive', cursive; */
+    font-family: 'La Belle Aurore', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 50px;
 }
 
-.insta button {
-    height: 24px;
-}
-
-@media(max-width: 375px){
-    .heroImage {
-        width: 375px;
-        height: 75vh;
-        background-repeat: no-repeat;
-        background-size: 100% 50%;
-    }
-}
-
-@media(max-width: 768px){
-    .heroImage{
-        width: 768;
-        height: 100vh;
-        background-repeat: no-repeat;
-        background-size: 100% 50%;
-    }
+.logoLink {
+    color: #202020;
+    text-decoration: none;
 }

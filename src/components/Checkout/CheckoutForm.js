@@ -64,21 +64,59 @@ class CheckoutForm extends Component {
   }
 
   render() {
-
     // if(this.props.cart.length === 0){
     //   return (
     //     <Redirect to='/products'/>
     //   )
     // }
+
+    let orderSummary = this.props.cart.map((item, i) => {
+      return (
+        <div key={i} style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          height: '175px',
+          marginBottom: '32px'
+        }}>
+
+          <img src={item.img} width='100px' height='100px' alt='Item'/>
+
+          <p>{item.title}</p>
+
+          <p>Quantity: {item.quantity}</p>
+
+          <p>Price: ${item.price}</p>
+
+        </div>
+      )
+    })
     
     return !this.state.complete ? 
+        <div className='checkoutContainer'>
+          <div className="checkout">
 
-        <div className="checkout">
-          <h1>Total: ${this.props.total}</h1>
-          {/* <p>Would you like to complete the purchase?</p> */}
-          <CardElement/>
-          <button className='w3-btn w3-black' onClick={this.submit}>Pay</button>
-        </div>:
+            <h1>Total: ${this.props.total}</h1>
+
+            <CardElement/>
+
+            <input placeholder='Address 1' className='w3-input'/>
+            <input placeholder='Address 2' className='w3-input'/>
+            <input placeholder='City' className='w3-input'/>
+            <input placeholder='State' className='w3-input'/>
+
+            <button className='w3-button w3-black w3-hover-pale-red' style={{
+              height: '40px',
+              fontSize: '24px'
+            }}onClick={this.submit}>Pay</button>
+
+
+          </div>
+            <div className='orderSummary'>
+              {orderSummary}
+            </div>
+        </div>
+        :
         <div>
           <h1>Payment Successful!</h1> 
           {/* <Redirect to='/'/> */}

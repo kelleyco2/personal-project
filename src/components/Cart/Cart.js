@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getCart, updateTotal } from '../../ducks/reducer'
 import CartItem from './CartItem'
 import { Link } from 'react-router-dom'
+import './Cart.css'
 
 class Cart extends Component {
 
@@ -20,6 +21,7 @@ class Cart extends Component {
     render(){
         let cartTotal = 0
         let cart = this.props.cart.map(item => {
+            console.log(item)
             cartTotal += item.price * item.quantity
             return (
                 <div>
@@ -30,16 +32,16 @@ class Cart extends Component {
             )
         })
         return(
-            <div>
+            <div className='everythingElse'>
 
-                <div style={{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'}}>
+                <div className='cart'>
                     {cart}                
-                </div><br/><br/><br/><br/>
-
-                <p>Total ${Math.floor(cartTotal * 100) / 100}</p><br/>
+                </div><br/><br/>
+                
+                <p style={{fontSize: '24px'}}>Total: ${Math.floor(cartTotal * 100) / 100}</p><br/>
 
                 <Link to='/checkout'>
-                    <button className='w3-btn w3-black' onClick={() => {this.updateTotal(Math.floor(cartTotal * 100) / 100)}}>
+                    <button style={{height: '50px', fontSize: '24px'}} className='w3-button w3-black w3-hover-pale-red' onClick={() => {this.updateTotal(Math.floor(cartTotal * 100) / 100)}}>
                         Checkout
                     </button>
                 </Link>

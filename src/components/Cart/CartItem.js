@@ -33,26 +33,26 @@ class CartItem extends Component {
 
 
                     <img src={img} alt='' height='250px' width='250px'/><br/>
-
+                    
                     <h3>{title}</h3><br/>
 
                     <p>Quantity: {quantity}</p><br/>
 
                     <div>
-                        <button className='w3-btn w3-black' style={{marginRight: '8px'}} onClick={() => this.updateQuantity('down')}>
+                        <button className='w3-button w3-black w3-hover-pale-red' style={{marginRight: '8px'}} onClick={() => this.updateQuantity('down')}>
                             -
                         </button>
 
-                        <button className='w3-btn w3-black' onClick={() => this.updateQuantity('up')}>
+                        <button className='w3-button w3-black w3-hover-pale-red' onClick={() => this.updateQuantity('up')}>
                             +
                         </button>
                     </div><br/>
 
-                    <button className='w3-btn w3-black' onClick={() => this.remove(id)}>
+                    <button className='w3-button w3-black w3-hover-pale-red' onClick={() => this.remove(id)}>
                         Remove
                     </button><br/>
 
-                    <p>${Math.floor(quantity * price * 100) / 100}</p>
+                    <p style={{fontSize: '24px'}}>${Math.floor(quantity * price * 100) / 100}</p>
                     
 
             </div>

@@ -10,12 +10,16 @@ class Orders extends Component {
         super()
 
         this.state = {
-            checked: false
+            checked: false,
         }
     }
 
     componentDidMount(){
         axios.get('/api/orders').then(res => {
+            res.data.forEach(o => {
+                let status = o.status ? o.status : 'No Status'
+                this.setState({[`status${o.id}`]: status})
+            })
             this.props.getOrders(res.data)
         })
     }
@@ -26,7 +30,11 @@ class Orders extends Component {
         })
     }
 
+        
+
     render(){
+        console.log(this.props.orders)
+        console.log(this.state)
         let reducedOrders = this.props.orders.reduce((a, v) => {
             let index = a.findIndex(p => p.id === v.id)
             if(index === -1) {
@@ -58,16 +66,18 @@ class Orders extends Component {
                 return (
                     <div key={i}>
                         <p>
-                            Product: {p.title}
-                        </p><br/>
-                        <p>
-                            Quantity: {p.quantity}
+                            {p.title} x {p.quantity}
                         </p><br/>
                     </div>
                 )
             })
             return (
                 <div key={i} className='orders'>
+
+                    <p style={{marginLeft: 'auto'}}>
+                        Status: {this.state[`status${order.id}`]}
+                    </p>
+
                     <p>
                         Order ID: {order.id}
                     </p><br/>
@@ -81,9 +91,23 @@ class Orders extends Component {
                     <p>
                         Total: ${order.total}
                     </p>
+
                     
-                    <div style={{marginLeft: 'auto'}}>        
-                        <input type='checkBox' onClick={this.handleClick}/> Completed
+                    <div style={{marginLeft: 'auto'}}>  
+
+
+                        <select className='w3-select' onChange={(e) => {
+                            const {value} = e.target
+                            axios.post(`/api/orders/${order.id}`, {status: value}).then(res => {
+                                this.setState({[`status${order.id}`]: value})
+                            })
+                        }}>
+                            <option value='' disabled selected>Choose Order Status</option>
+                            <option value='Pending'>Pending</option>
+                            <option value='Shipped'>Shipped</option>
+                            <option value='Picked Up'>Picked Up</option>
+                            <option value='Completed'>Completed</option>
+                        </select>
                     </div>
                 </div>
             )

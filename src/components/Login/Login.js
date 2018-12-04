@@ -44,7 +44,7 @@ class Login extends Component {
     render(){
         return this.props.isAuthenticated ?
             <Redirect to='/'/>:
-            <div className='container'>
+            <div className='loginContainer'>
 
                 <div className='login'>
                     <h1 style={{fontSize: '32px'}}>Login</h1><br/>
@@ -66,7 +66,7 @@ class Login extends Component {
                     /><br/>
 
                     <button 
-                    className='w3-btn w3-black w3-block'
+                    className='w3-button w3-black w3-hover-pale-red w3-block'
                     onClick={this.handleClick}
                     >
                     Login
@@ -78,7 +78,7 @@ class Login extends Component {
                     <p>
                         Create an account to take adavantage of the features and benefits that make shopping faster and easier.
                     </p><br/>
-                    <button className='w3-btn w3-black'>
+                    <button className='w3-button w3-black w3-hover-pale-red'>
                         <Link to='/register' style={{ textDecoration: 'none' }}>Register</Link>
                     </button>
                 </div>

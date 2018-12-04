@@ -23,6 +23,16 @@ module.exports = {
         db.getOrders().then(response => {
             res.status(200).send(response)
         })
+    },
+
+    addOrderStatus: (req, res) => {
+        const db = req.app.get('db')
+        let { status } = req.body
+        let { id } = req.params
+
+        db.addOrderStatus([id, status]).then(response => {
+            res.status(200).send(response)
+        })
     }
 
 

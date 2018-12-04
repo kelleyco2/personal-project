@@ -2,25 +2,24 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: black;
-    color: white;
+    background-color: #202020;
+    color: #FBFBFB;
     width: 100%;
     height: 60px;
+    font-size: 18px;
+}
+
+.linkHome{
+    color: #FBFBFB;
+    text-decoration: none;
+    font-family: 'La Belle Aurore', cursive;
+    font-size: 32px;
 }
 
 button:focus {outline:0;}
 
-.bookNow {
-    font-size: 16px;
-    border-radius: 20px;
-    padding: 8px;
-    background-color: lightcoral;
-    color: white;
-    border: none;
-}
-
 .link {
-    color: white;
+    color: #FBFBFB;
     text-decoration: none;
 }
 

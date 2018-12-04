@@ -56,6 +56,7 @@ app.post('/charge', async (req, res) => {
 })
 
 app.get('/api/orders', oc.getOrders)
+app.post('/api/orders/:id', oc.addOrderStatus)
 
 
 app.use(checkForSession)
