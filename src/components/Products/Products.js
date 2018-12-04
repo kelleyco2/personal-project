@@ -7,15 +7,16 @@ import './Products.css'
 import { Link } from 'react-router-dom' 
 
 class Products extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
 
         this.state = {
             update: false,
-            img: '',
-            title: '',
-            description: '',
-            price: 0
+            img: props.product.img,
+            title: props.product.title,
+            description: props.product.description,
+            price: props.product.price,
+            updateClass: 'adminProductBoxUpdateFalse'
         }
     }
 
@@ -27,7 +28,8 @@ class Products extends Component {
 
     update = () => {
         this.setState({
-            update: true
+            update: true,
+            updateClass: 'adminProductBoxUpdateTrue'
         })
     }
 
@@ -58,7 +60,7 @@ class Products extends Component {
         let { product } = this.props
         return(
             this.props.isAdmin ?
-                    <div key={product.id} className='productBox'>
+                    <div key={product.id} className={this.state.updateClass}>
 
                         <img src={product.img} alt='' height='250px' width='250px'/><br/>
 
@@ -75,48 +77,42 @@ class Products extends Component {
                         </div><br/>
 
                         <div>
-                            {!this.state.update ?
-                                <button onClick={this.update}>
-                                    Update
-                                </button>:
-                                null
-                            }
-                        </div><br/>
+                            <div>
+                                {!this.state.update ?
+                                    <button onClick={this.update} className='w3-btn w3-black'>
+                                        Update
+                                    </button>:
+                                    null
+                                }
+                            </div><br/>
 
-                        <button 
-                        onClick={() => {
-                            axios.delete(`/api/products/${product.id}`).then(res => {
-                                this.props.setProducts(res.data)
-                            })
-                        }}>
-                            Delete
-                        </button><br/>
+                        </div>
                         
                         { this.state.update ?
-                        <div>
+                        <div className='update'>
                         <input 
                         type='text'
-                        // value={product.img}
+                        value={this.state.img}
                         placeholder='Image URL'
                         onChange={(e) => this.handleChange(e.target.value, 'img')}
                         />
 
                         <input 
                         type='text'
-                        // value={product.title}
+                        value={this.state.title}
                         placeholder='Title'
                         onChange={(e) => this.handleChange(e.target.value, 'title')}
                         />
 
                         <textarea 
-                        // value={product.description}
+                        value={this.state.description}
                         placeholder='Description'
                         onChange={(e) => this.handleChange(e.target.value, 'description')}
                         />
 
                         <input 
                         type='number'
-                        // value={product.price}
+                        value={this.state.price}
                         placeholder='Price'
                         onChange={(e) => this.handleChange(e.target.value, 'price')}
                         />
@@ -131,17 +127,21 @@ class Products extends Component {
                                 img: '',
                                 title: '',
                                 description: '',
-                                price: 0
+                                price: 0,
+                                updateClass: 'adminProductBoxUpdateFalse'
                             })
-                        }}>
+                        }}
+                        className='w3-btn w3-black'>
                             Submit
                         </button>
                         
                         <button onClick={() => {
                             this.setState({
-                                update: false
+                                update: false,
+                                updateClass: 'adminProductBoxUpdateFalse'
                             })
-                        }}>
+                        }}
+                        className='w3-btn w3-black'>
                             Cancel
                         </button>
 
@@ -171,12 +171,12 @@ class Products extends Component {
                     {
                         !this.props.isAuthenticated ?
                         <Link to='/login'>
-                            <button>
+                            <button className='w3-btn w3-black'>
                                 Add to cart
                             </button>
                         </Link>
                         :
-                        <button onClick={() => this.addToCart(product.id)}>
+                        <button onClick={() => this.addToCart(product.id)} className='w3-btn w3-black'>
                             Add to cart
                         </button>
                     }

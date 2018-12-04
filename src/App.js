@@ -15,6 +15,8 @@ import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import Cart from './components/Cart/Cart'
 import CheckoutForm from './components/Checkout/CheckoutForm'
+import Orders from './components/Orders/Orders'
+import Footer from './components/Footer/Footer'
 
 import { clientLoggedIn, isAdmin, getCart } from './ducks/reducer'
 
@@ -50,11 +52,13 @@ class App extends Component {
             <Route path='/login' component={Login}/>
             <Route path='/register' component={Register}/>
             <Route path='/cart' component={Cart}/>
+            <Route path='/orders' component={Orders}/>
             <Elements>
               <Route path='/checkout' component={CheckoutForm}/>
             </Elements>
           </Switch>
         </div>
+          <Footer/>
       </div>
     </StripeProvider>
     );

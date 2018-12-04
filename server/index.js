@@ -10,7 +10,7 @@ const ac = require('./controllers/Auth')
 const pc = require('./controllers/ProductsController')
 const cc = require('./controllers/CartController')
 const checkForSession = require('./middlewares/checkForSession')
-const oc = require('./controllers/OrdersController')
+const oc = require('./controllers/OrderController')
 
 const app = express()
 
@@ -55,17 +55,18 @@ app.post('/charge', async (req, res) => {
     }
 })
 
+app.get('/api/orders', oc.getOrders)
+
 
 app.use(checkForSession)
-
-app.get('/api/order', oc.getOrder)
-app.post('/api/order/:id', oc.addOrder)
 
 app.get('/api/cart', cc.getCart)
 app.post('/api/cart/:id', cc.addToCart)
 app.put('/api/cart/:id', cc.updateQuantity)
 app.delete('/api/cart/checkout', cc.checkout)
 app.delete('/api/cart/:id', cc.deleteItem)
+
+app.post('/api/order', oc.addOrder)
 
 app.listen(PORT, () => {
     console.log('listening on port', PORT)

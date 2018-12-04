@@ -21,7 +21,6 @@ class Header extends Component {
                 <Link to='/' className='link home'>Home</Link>
                 <Link to='/lashcare' className='link'>Lash Care</Link>
                 <Link to='/products' className='link'>Products</Link>
-                <Link to='/cart' className='link'>Cart ({this.props.cart.length})</Link>
                 <div>
                     {this.props.isAuthenticated ? 
                         <Link to='/login' className='link' onClick={this.logout}>Logout</Link> :
@@ -29,7 +28,17 @@ class Header extends Component {
                     }
                 </div>
 
-                <button className='bookNow'>Book Now!</button>
+                    {this.props.isAdmin ?
+                        <Link to='/orders' className='link'>Orders</Link> 
+                        :
+                        <Link to='/cart' className='link'>
+                            <i class="fas fa-shopping-cart"></i> {this.props.cart.length}
+                        </Link>
+                    }
+
+
+
+                {/* <button className='bookNow'>Book Now!</button> */}
                 <i className="fa fa-bars" aria-hidden="true"></i>
             </header>
         )
@@ -37,11 +46,12 @@ class Header extends Component {
 }
 
 function mapStateToProps(state){
-    let { isAuthenticated, client, cart } = state
+    let { isAuthenticated, client, cart, isAdmin } = state
     return{
         isAuthenticated,
         client,
-        cart
+        cart,
+        isAdmin
     }
 }
 

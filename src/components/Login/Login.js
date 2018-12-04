@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { clientLoggedIn, isAdmin, getCart } from '../../ducks/reducer'
 import { Redirect } from 'react-router-dom'
 
+import './Login.css'
+
 class Login extends Component {
     constructor(){
         super()
@@ -42,28 +44,44 @@ class Login extends Component {
     render(){
         return this.props.isAuthenticated ?
             <Redirect to='/'/>:
-            <div>
+            <div className='container'>
 
-                <h1>Login</h1>
+                <div className='login'>
+                    <h1 style={{fontSize: '32px'}}>Login</h1><br/>
 
-                <input 
-                placeholder='Email' 
-                onChange={(e) => this.handleChange(e.target.value, 'email')} 
-                value={this.state.email}
-                />
+                    <input 
+                    className='w3-input'
+                    placeholder='Email' 
+                    onChange={(e) => this.handleChange(e.target.value, 'email')} 
+                    value={this.state.email}
+                    /><br/>
 
-                <input 
-                placeholder='Password' 
-                onChange={(e) => this.handleChange(e.target.value, 'password')} 
-                value={this.state.password}
-                onKeyPress={this.handleKeyPress}
-                /><br/>
+                    <input 
+                    className='w3-input'
+                    type='password'
+                    placeholder='Password' 
+                    onChange={(e) => this.handleChange(e.target.value, 'password')} 
+                    value={this.state.password}
+                    onKeyPress={this.handleKeyPress}
+                    /><br/>
 
-                <button onClick={this.handleClick}>Login</button>
+                    <button 
+                    className='w3-btn w3-black w3-block'
+                    onClick={this.handleClick}
+                    >
+                    Login
+                    </button>
+                </div>
 
-                <button>
-                    <Link to='/register'>Register</Link>
-                </button>
+                <div className='register'>
+                    <h1 style={{fontSize: '32px'}}>Create An Account</h1>
+                    <p>
+                        Create an account to take adavantage of the features and benefits that make shopping faster and easier.
+                    </p><br/>
+                    <button className='w3-btn w3-black'>
+                        <Link to='/register' style={{ textDecoration: 'none' }}>Register</Link>
+                    </button>
+                </div>
 
             </div>
     }

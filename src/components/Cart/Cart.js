@@ -36,10 +36,10 @@ class Cart extends Component {
                     {cart}                
                 </div><br/><br/><br/><br/>
 
-                <p>Total ${Math.floor(cartTotal * 100) / 100}</p>
+                <p>Total ${Math.floor(cartTotal * 100) / 100}</p><br/>
 
                 <Link to='/checkout'>
-                    <button onClick={() => {this.updateTotal(Math.floor(cartTotal * 100) / 100)}}>
+                    <button className='w3-btn w3-black' onClick={() => {this.updateTotal(Math.floor(cartTotal * 100) / 100)}}>
                         Checkout
                     </button>
                 </Link>

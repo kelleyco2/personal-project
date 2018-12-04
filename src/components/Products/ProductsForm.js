@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { setProducts } from '../../ducks/reducer'
+import './ProductsForm.css'
 
 class ProductsForm extends Component {
     constructor(){
@@ -35,9 +36,10 @@ class ProductsForm extends Component {
 
     render(){
         return (
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+            <div className='productForm'>
+                <h1 style={{fontSize: '32px'}}>Add Products</h1>
 
-                Image
+                
                 <input 
                 type='text'
                 placeholder='Image URL' 
@@ -45,7 +47,7 @@ class ProductsForm extends Component {
                 value={this.state.img}
                 /><br/>
 
-                Title
+                
                 <input 
                 type='text'
                 placeholder='Title'
@@ -53,7 +55,7 @@ class ProductsForm extends Component {
                 value={this.state.title}
                 /><br/>
 
-                Description
+                
                 <textarea 
                 cols='30'
                 rows='10'
@@ -70,7 +72,7 @@ class ProductsForm extends Component {
                 value={this.state.price}
                 /><br/>
 
-                <button onClick={this.handleClick}>
+                <button onClick={this.handleClick} className='w3-btn w3-black'>
                     Add
                 </button>
 

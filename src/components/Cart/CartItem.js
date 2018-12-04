@@ -39,16 +39,16 @@ class CartItem extends Component {
                     <p>Quantity: {quantity}</p><br/>
 
                     <div>
-                        <button onClick={() => this.updateQuantity('down')}>
+                        <button className='w3-btn w3-black' style={{marginRight: '8px'}} onClick={() => this.updateQuantity('down')}>
                             -
                         </button>
 
-                        <button onClick={() => this.updateQuantity('up')}>
+                        <button className='w3-btn w3-black' onClick={() => this.updateQuantity('up')}>
                             +
                         </button>
                     </div><br/>
 
-                    <button onClick={() => this.remove(id)}>
+                    <button className='w3-btn w3-black' onClick={() => this.remove(id)}>
                         Remove
                     </button><br/>
 
