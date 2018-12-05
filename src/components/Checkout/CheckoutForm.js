@@ -72,21 +72,18 @@ class CheckoutForm extends Component {
 
     let orderSummary = this.props.cart.map((item, i) => {
       return (
-        <div key={i} style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '175px',
-          marginBottom: '32px'
-        }}>
+        <div key={i}>
 
-          <img src={item.img} width='100px' height='100px' alt='Item'/>
-
-          <p>{item.title}</p>
-
-          <p>Quantity: {item.quantity}</p>
-
-          <p>Price: ${item.price}</p>
+          <ul className='w3-ul w3-border-bottom'>
+            <li className='w3-bar'>
+              <span className='w3-bar-item w3-right'>
+                ${item.price}
+              </span>
+              <span className='w3-bar-item'>
+                {item.title} x {item.quantity}
+              </span>
+            </li>
+          </ul>
 
         </div>
       )
@@ -117,9 +114,16 @@ class CheckoutForm extends Component {
             </div>
         </div>
         :
-        <div>
-          <h1>Payment Successful!</h1> 
-          {/* <Redirect to='/'/> */}
+        <div className='success'>
+
+          <div className='w3-card' style={{width: '80vw', height: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center', padding: '250px'}}>
+            <h1>Payment Successful!</h1>
+
+            <p>
+              An email with your order summary will be sent right away.
+            </p>
+            
+          </div>
         </div>
         
   }

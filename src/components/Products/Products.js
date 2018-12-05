@@ -16,7 +16,10 @@ class Products extends Component {
             title: props.product.title,
             description: props.product.description,
             price: props.product.price,
-            updateClass: 'adminProductBoxUpdateFalse'
+            updateClass: 'adminProductBoxUpdateFalse',
+            accordion: 'w3-hide w3-container',
+            productBox: 'productBoxSmall',
+            show: 'w3-show'
         }
     }
 
@@ -56,20 +59,58 @@ class Products extends Component {
         this.componentDidMount()
     }
 
+    accordion = () => {
+        if(this.state.accordion === 'w3-hide w3-container'){
+            this.setState({
+                accordion: 'w3-show w3-container'
+            })
+        } else {
+            this.setState({
+                accordion: 'w3-hide w3-container'
+            })
+        }
+        if(this.state.productBox === 'productBoxSmall'){
+            this.setState({
+                productBox: 'productBoxBig'
+            })
+        } else {
+            this.setState({
+                productBox: 'productBoxSmall'
+            })
+        }
+        if(this.state.show === 'w3-show'){
+            this.setState({
+                show: 'w3-hide'
+            })
+        } else {
+            this.setState({
+                show: 'w3-show'
+            })
+        }
+    }
+    
+
     render(){
         let { product } = this.props
         return(
             this.props.isAdmin ?
                     <div key={product.id} className={this.state.updateClass}>
 
-                        <img src={product.img} alt='' height='250px' width='250px'/><br/>
+                        <img className={this.state.show} src={product.img} alt='' height='250px' width='250px'/><br/>
 
                         <div>
                             {product.title}
                         </div><br/>
 
-                        <div>
+                        {/* <div>
                             {product.description}
+                        </div><br/> */}
+                        <button onClick={this.accordion} className='w3-button w3-black'>
+                            Details
+                        </button><br/>
+
+                        <div className={this.state.accordion}>
+                            <p style={{}}>{product.description}</p>
                         </div><br/>
 
                         <div>
@@ -152,7 +193,7 @@ class Products extends Component {
                     </div>
                     :
 
-                    <div key={product.id} className='productBox'>
+                    <div key={product.id} className={this.state.productBox}>
 
                     <img src={product.img} alt='' height='250px' width='250px'/><br/>
 
@@ -160,8 +201,12 @@ class Products extends Component {
                         {product.title}
                     </div><br/>
 
-                    <div>
-                        {product.description}
+                    <button onClick={this.accordion} className='w3-button w3-black'>
+                        Details
+                    </button><br/>
+
+                    <div id='details' className={this.state.accordion}>
+                        <p>{product.description}</p>
                     </div><br/>
 
                     <div>

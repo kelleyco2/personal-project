@@ -11,16 +11,27 @@ class Orders extends Component {
 
         this.state = {
             checked: false,
+            dates: []
         }
     }
 
+
     componentDidMount(){
         axios.get('/api/orders').then(res => {
-            res.data.forEach(o => {
+            let dates = []
+            res.data.forEach((o, i) => {
+                let date = o.date ? o.date.split('T')[0] : ''
+                let index = dates.indexOf(date)
+                if(index === -1){
+                    dates.push(date)
+                } 
                 let status = o.status ? o.status : 'No Status'
                 this.setState({[`status${o.id}`]: status})
             })
             this.props.getOrders(res.data)
+            this.setState({
+                dates
+            })
         })
     }
 
@@ -30,11 +41,10 @@ class Orders extends Component {
         })
     }
 
+
         
 
     render(){
-        console.log(this.props.orders)
-        console.log(this.state)
         let reducedOrders = this.props.orders.reduce((a, v) => {
             let index = a.findIndex(p => p.id === v.id)
             if(index === -1) {
@@ -113,9 +123,43 @@ class Orders extends Component {
             )
         })
 
+        // let dateSelection = this.state.dates.map(date => {
+        //     console.log(date)
+        //     return (
+        //                 <option value='' disabled selected>Select Date</option>
+        //                 <option value={date}>{date}</option>
+
+        //     )
+        // })
+
+
         return (
             <div>
-                {orders}
+                <select className='w3-input' style={{width: '80vw', margin: 'auto', marginTop: '40px'}} onChange={(e) => {
+                    const { value } = e.target
+                    if(value === 'All'){
+                        axios.get('/api/orders').then(res => {
+                            this.props.getOrders(res.data)
+                        })
+                    } else {
+                        axios.post('/api/orders', {date: value}).then(res => {
+                            this.props.getOrders(res.data)
+                        })
+                    }
+                }}>
+                    <option value='' disable selected>Filter By Date</option>
+                    <option value='All'>All Orders</option>
+                    {
+                        this.state.dates.map(date => {
+                            return (
+                                <option value={date}>{date}</option> 
+                            )
+                        })
+                    }
+                </select>
+                <div className='orderContainer'>
+                    {orders}
+                </div>
             </div>
         )
     }

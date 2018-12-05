@@ -29,7 +29,7 @@ class ProductsContainer extends Component{
                     {products}
                 </div><br/>
 
-                <div style={{display: 'flex', justifyContent: 'center'}}>                    
+                <div style={{display: 'flex', justifyContent: 'center', marginBottom: 40}}>                    
                     <ProductsForm />
                 </div>
             </div>

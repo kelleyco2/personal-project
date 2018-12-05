@@ -9,6 +9,9 @@
     padding: 24px;
 }
 
-/* .checked {
-
-} */
+.orderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}

@@ -40,11 +40,24 @@ class Cart extends Component {
                 
                 <p style={{fontSize: '24px'}}>Total: ${Math.floor(cartTotal * 100) / 100}</p><br/>
 
-                <Link to='/checkout'>
-                    <button style={{height: '50px', fontSize: '24px'}} className='w3-button w3-black w3-hover-pale-red' onClick={() => {this.updateTotal(Math.floor(cartTotal * 100) / 100)}}>
-                        Checkout
-                    </button>
-                </Link>
+                {
+                    cartTotal ? 
+
+                    <Link to='/checkout'>
+                        <button style={{height: '50px', fontSize: '24px'}} className='w3-button w3-black w3-hover-pale-red' onClick={() => {this.updateTotal(Math.floor(cartTotal * 100) / 100)}}>
+                            Checkout
+                        </button>
+                    </Link>
+
+                    : 
+
+                    <Link to='/products'>
+                        <button style={{height: '50px', fontSize: '24px'}} className='w3-button w3-black w3-hover-pale-red'>
+                            Checkout
+                        </button>
+                    </Link>
+                }
+
             </div>
         )
     }

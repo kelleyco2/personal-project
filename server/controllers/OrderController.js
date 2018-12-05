@@ -33,6 +33,15 @@ module.exports = {
         db.addOrderStatus([id, status]).then(response => {
             res.status(200).send(response)
         })
+    },
+
+    getOrdersByDate: (req, res) => {
+        const db = req.app.get('db')
+        let {date} = req.body
+
+        db.getOrdersByDate(date).then(response => {
+            res.status(200).send(response)
+        })
     }
 
 

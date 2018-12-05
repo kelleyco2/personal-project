@@ -17,3 +17,8 @@
     height: 500px;
     line-height: 1.8;
 }
+
+.login p {
+    color: red;
+    margin-top: 24px;
+}

@@ -24,7 +24,7 @@ class Header extends Component {
                 <div>
                     {this.props.isAuthenticated ? 
                         <Link to='/login' className='link' onClick={this.logout}>Logout</Link> :
-                        <Link to='/login' className='link'>Login</Link>
+                        <Link to='/login' className='link'>Login | Register</Link>
                     }
                 </div>
 
@@ -36,7 +36,7 @@ class Header extends Component {
                         </Link>
                     }
 
-                <a target="_blank" style={{backgroundColor: '#FCDBDB', color: 'black', textDecoration: 'none', height: '40px', textTransform: 'uppercase', letterSpacing: '1px', lineHeight: '38px', padding: '0 28px', borderRadius: '3px', fontWeight: '500', fontSize: '14px', cursor: 'pointer'}} href="https://squareup.com/appointments/book/EYR4MTRG6QT3E/my-business" rel="noopener noreferrer">Book Now!</a>
+                <a target="_blank" style={{backgroundColor: '#FCDBDB', color: 'black', textDecoration: 'none', height: '40px', textTransform: 'uppercase', letterSpacing: '1px', lineHeight: '38px', padding: '0 28px', borderRadius: '3px', fontWeight: '600', fontSize: '14px', cursor: 'pointer'}} href="https://squareup.com/appointments/book/EYR4MTRG6QT3E/my-business" rel="noopener noreferrer">Book Now!</a>
 
                 <i className="fa fa-bars" aria-hidden="true"></i>
             </header>

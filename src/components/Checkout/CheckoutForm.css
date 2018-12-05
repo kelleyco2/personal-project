@@ -1,6 +1,7 @@
 .checkoutContainer {
+    margin-top: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .checkout {
@@ -20,10 +21,11 @@
     height: 100%;
     border: 1px solid black;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
     /* align-items: center; */
-    padding: 40px;
+    padding: 32px;
 }
 
 
@@ -38,6 +40,27 @@
     transition: box-shadow 150ms ease;
   }
 
+.success {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}    
  
+
+.successOrderSummary {
+    height: 60%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.success h1 {
+    font-size: 32px;
+}
+
+.success p {
+    font-size: 24px;
+}
 
  

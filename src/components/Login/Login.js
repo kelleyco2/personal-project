@@ -13,7 +13,8 @@ class Login extends Component {
 
         this.state={
             email: '',
-            password: ''
+            password: '',
+            error: ''
         }
     }
 
@@ -33,6 +34,10 @@ class Login extends Component {
             if(client.email === 'maria@gmail.com'){
                 this.props.isAdmin()
             }
+        }).catch(err => {
+            this.setState({
+                error: 'Incorrect Password'
+            })
         })
     }
 
@@ -71,6 +76,8 @@ class Login extends Component {
                     >
                     Login
                     </button>
+
+                    <p>{this.state.error}</p>
                 </div>
 
                 <div className='register'>

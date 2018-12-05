@@ -3,5 +3,15 @@
     height: 300px;
     display: flex;
     flex-direction: column;   
-    justify-content: space-around
+    justify-content: space-around;
+}
+
+.registerContainer {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.registering p {
+    color: red;
 }
