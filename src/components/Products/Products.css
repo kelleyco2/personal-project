@@ -32,6 +32,7 @@
     /* box-shadow: 2px 2px 2px #aaaaaa; */
     border: 1px solid #aaaaaa;
     margin: 24px;
+    transition: height 0.5s;
 }
 
 .adminProductBoxUpdateFalse {
@@ -44,6 +45,7 @@
     /* box-shadow: 2px 2px 2px #aaaaaa; */
     border: 1px solid #aaaaaa;
     margin: 24px;
+    transition: height 0.5s;
 }
 
 .update {

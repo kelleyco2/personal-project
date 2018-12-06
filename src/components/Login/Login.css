@@ -1,5 +1,5 @@
 .loginContainer {
-    padding: 40px;
+    padding: 200px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -21,4 +21,10 @@
 .login p {
     color: red;
     margin-top: 24px;
+}
+
+@media (min-width: 1250px) {
+    .loginContainer {
+        padding: 250px;
+    }
 }

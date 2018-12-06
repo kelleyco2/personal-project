@@ -1,7 +1,7 @@
 .heroImage {
     background-image: url('//cdn.shopify.com/s/files/1/0163/4078/t/61/assets/homepage_hero_image_1.jpg?16574939919270013573');
     width: 100vw;
-    height: 78vh;
+    height: 80vh;
     background-size: cover;
     display: flex;
     justify-content: flex-end;

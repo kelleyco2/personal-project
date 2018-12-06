@@ -69,15 +69,6 @@ class Products extends Component {
                 accordion: 'w3-hide w3-container'
             })
         }
-        if(this.state.productBox === 'productBoxSmall'){
-            this.setState({
-                productBox: 'productBoxBig'
-            })
-        } else {
-            this.setState({
-                productBox: 'productBoxSmall'
-            })
-        }
         if(this.state.show === 'w3-show'){
             this.setState({
                 show: 'w3-hide'
@@ -98,27 +89,25 @@ class Products extends Component {
 
                         <img className={this.state.show} src={product.img} alt='' height='250px' width='250px'/><br/>
 
-                        <div>
+                        <div className={this.state.show}>
                             {product.title}
                         </div><br/>
 
-                        {/* <div>
-                            {product.description}
-                        </div><br/> */}
-                        <button onClick={this.accordion} className='w3-button w3-black'>
+                        <div className={this.state.show}>
+                            ${product.price}
+                        </div><br/>
+
+                        <button onClick={this.accordion} className='w3-button w3-black w3-hover-pale-red'>
                             Details
                         </button><br/>
 
                         <div className={this.state.accordion}>
-                            <p style={{}}>{product.description}</p>
+                            <p style={{lineHeight: '1.5'}}>{product.description}</p>
                         </div><br/>
 
-                        <div>
-                            ${product.price}
-                        </div><br/>
 
                         <div>
-                            <div>
+                            <div className={this.state.show}>
                                 {!this.state.update ?
                                     <button onClick={this.update} className='w3-button w3-black w3-hover-pale-red'>
                                         Update
@@ -195,36 +184,38 @@ class Products extends Component {
 
                     <div key={product.id} className={this.state.productBox}>
 
-                    <img src={product.img} alt='' height='250px' width='250px'/><br/>
+                    <img className={this.state.show}src={product.img} alt='' height='250px' width='250px'/><br/>
 
-                    <div>
+                    <div className={this.state.show}>
                         {product.title}
                     </div><br/>
 
-                    <button onClick={this.accordion} className='w3-button w3-black'>
-                        Details
-                    </button><br/>
-
-                    <div id='details' className={this.state.accordion}>
-                        <p>{product.description}</p>
-                    </div><br/>
-
-                    <div>
+                    <div className={this.state.show}>
                         ${product.price}
                     </div><br/>
 
-                    {
-                        !this.props.isAuthenticated ?
-                        <Link to='/login'>
-                            <button className='w3-button w3-black w3-hover-pale-red'>
+                    <button onClick={this.accordion} className='w3-button w3-black w3-hover-pale-red'>
+                        Details
+                    </button><br/>
+
+                    <div className={this.state.accordion}>
+                        <p style={{lineHeight: '1.4'}}>{product.description}</p>
+                    </div><br/>
+
+                    <div className={this.state.show}>
+                        {
+                            !this.props.isAuthenticated ?
+                            <Link to='/login'>
+                                <button className='w3-button w3-black w3-hover-pale-red'>
+                                    Add to cart
+                                </button>
+                            </Link>
+                            :
+                            <button onClick={() => this.addToCart(product.id)} className='w3-button w3-black w3-hover-pale-red '>
                                 Add to cart
                             </button>
-                        </Link>
-                        :
-                        <button onClick={() => this.addToCart(product.id)} className='w3-button w3-black w3-hover-pale-red '>
-                            Add to cart
-                        </button>
-                    }
+                        }
+                    </div>
 
                     </div> 
         )
