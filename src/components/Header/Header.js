@@ -15,11 +15,12 @@ class Header extends Component {
         this.props.resetCart()
     }
 
+
     render(){
         return (
             <header>
                 <Link to='/' className='linkHome'>MK</Link>
-                <Link to='/lashcare' className='link'>Lash Care</Link>
+                <Link to='/information' className='link'>Information</Link>
                 <Link to='/products' className='link'>Products</Link>
                 <div>
                     {this.props.isAuthenticated ? 
@@ -36,9 +37,9 @@ class Header extends Component {
                         </Link>
                     }
 
-                <a target="_blank" style={{backgroundColor: '#FCDBDB', color: 'black', textDecoration: 'none', height: '40px', textTransform: 'uppercase', letterSpacing: '1px', lineHeight: '38px', padding: '0 28px', borderRadius: '3px', fontWeight: '600', fontSize: '14px', cursor: 'pointer'}} href="https://squareup.com/appointments/book/EYR4MTRG6QT3E/my-business" rel="noopener noreferrer">Book Now!</a>
+                <a className='w3-hide-small' target="_blank" style={{backgroundColor: '#FCDBDB', color: 'black', textDecoration: 'none', height: '40px', textTransform: 'uppercase', letterSpacing: '1px', lineHeight: '38px', padding: '0 28px', borderRadius: '3px', fontWeight: '600', fontSize: '14px', cursor: 'pointer'}} href="https://squareup.com/appointments/book/EYR4MTRG6QT3E/my-business" rel="noopener noreferrer">Book Now!</a>
 
-                <i className="fa fa-bars" aria-hidden="true"></i>
+                <i className="fa fa-bars" aria-hidden="true" onClick={this.props.mobileNav}></i>
             </header>
         )
     }

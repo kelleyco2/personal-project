@@ -28,3 +28,24 @@
         padding: 250px;
     }
 }
+
+@media(max-width: 375px){
+    .loginContainer{
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .login {
+        width: 80vw;
+        height: 35vh;
+        margin-left: 100px;
+    }
+
+    .register{
+        width: 80vw;
+        /* height: 40vh; */
+    }
+}

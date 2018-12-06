@@ -8,3 +8,25 @@ input:focus {
   outline: none;
 }
 
+/* @media(){
+  .mobileNav{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: flex-end;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #202020;
+    overflow-x: hidden;
+    padding-top: 50px;
+    transition: 0.5s;
+}
+
+.sidenavLinks{
+    color: #FBFBFB;
+}
+} */
+

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)http://localhost:3000/#/ -->
+<html lang="en" class="gr__localhost"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+    <link rel="shortcut icon" href="data:image/png;base64,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">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <script src="./Maria&#39;s Lashes_files/saved_resource"></script>
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <link rel="stylesheet" href="./Maria&#39;s Lashes_files/w3.css">
+    <link rel="stylesheet" type="text/css" href="./Maria&#39;s Lashes_files/css">
+    <link href="./Maria&#39;s Lashes_files/css(1)" rel="stylesheet">
+    <link rel="stylesheet" href="./Maria&#39;s Lashes_files/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="node_modules/react-image-gallery/styles/css/image-gallery-no-icon.css"> -->
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Maria's Lashes</title>
+  <style type="text/css">body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FBFBFB;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+</style><style type="text/css">/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+    box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}</style><style type="text/css">body {
+  font-family: 'Lato';
+}
+
+
+
+input:focus {
+  outline: none;
+}
+
+</style><style type="text/css">header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #202020;
+    color: #FBFBFB;
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+}
+
+.linkHome{
+    color: #FBFBFB;
+    text-decoration: none;
+    font-family: 'La Belle Aurore', cursive;
+    font-size: 32px;
+}
+
+button:focus {outline:0;}
+
+.link {
+    color: #FBFBFB;
+    text-decoration: none;
+}
+
+.fa-bars{
+    display: none;
+}
+
+@media(max-width: 375px){
+    header{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 20px;
+    }
+
+    .link{
+        display: none;
+    }
+
+    .fa-bars{
+        display: block;
+        margin-right: 24px;
+    }
+}</style><style type="text/css">.heroImage {
+    background-image: url('//cdn.shopify.com/s/files/1/0163/4078/t/61/assets/homepage_hero_image_1.jpg?16574939919270013573');
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 135px;
+    color: #FBFBFB;
+}
+
+.logo {
+    background-color: #FBFBFB;
+    height: 10vh;
+    /* font-family: 'Cedarville Cursive', cursive; */
+    font-family: 'La Belle Aurore', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.logoLink {
+    color: #202020;
+    text-decoration: none;
+}
+
+@media (max-width: 375px) {
+    .logo {
+        font-size: 35px;
+    }
+
+    .heroImage {
+        background-size: 100% 40%;
+        background-repeat: no-repeat;
+    }
+
+}</style><style type="text/css">.lashCareContainer {
+    height: 1300px;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.lashCareContainer p {
+    font-size: 20px;
+}
+
+.lashCareContainer img {
+    margin-right: 40px;
+}
+
+.textContainer {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    line-height: 1.8;
+}</style><style type="text/css">.productBoxSmall {
+    width: 300px;
+    height: 500px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* box-shadow: 2px 2px 2px #aaaaaa; */
+    border: 1px solid #aaaaaa;
+    margin: 24px;
+}
+
+.productBoxBig {
+    width: 300px;
+    height: 625px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* box-shadow: 2px 2px 2px #aaaaaa; */
+    border: 1px solid #aaaaaa;
+    margin: 24px;
+}
+
+.adminProductBoxUpdateTrue {
+    width: 300px;
+    height: 750px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* box-shadow: 2px 2px 2px #aaaaaa; */
+    border: 1px solid #aaaaaa;
+    margin: 24px;
+    -webkit-transition: height 0.5s;
+    transition: height 0.5s;
+}
+
+.adminProductBoxUpdateFalse {
+    width: 300px;
+    height: 500px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* box-shadow: 2px 2px 2px #aaaaaa; */
+    border: 1px solid #aaaaaa;
+    margin: 24px;
+    -webkit-transition: height 0.5s;
+    transition: height 0.5s;
+}
+
+.update {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+</style><style type="text/css">.productForm {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}</style><style type="text/css">.productsContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    background-color: #FBFBFB;
+    color: #202020;
+}</style><style type="text/css">.loginContainer {
+    padding: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #FBFBFB;
+}
+
+.login {
+    width: 350px;
+    height: 500px;
+    margin-right: 100px;
+}
+
+.register {
+    width: 400px;
+    height: 500px;
+    line-height: 1.8;
+}
+
+.login p {
+    color: red;
+    margin-top: 24px;
+}
+
+@media (min-width: 1250px) {
+    .loginContainer {
+        padding: 250px;
+    }
+}</style><style type="text/css">.registering {
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;   
+    justify-content: space-around;
+}
+
+.registerContainer {
+    padding: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.registering p {
+    color: red;
+}</style><style type="text/css">.cartItem {
+    width: 80vw;
+    height: 300px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #aaaaaa;
+    margin: 8px;
+    justify-content: space-between;
+}
+
+</style><style type="text/css">.cart {
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+.everythingElse {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+</style><style type="text/css">.checkoutContainer {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.checkout {
+    width: 40vw;
+    height: 60vh;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 40px;
+    margin-right: 40px;
+}
+
+.orderSummary {
+    width: 40vw;
+    height: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 32px;
+}
+
+
+.StripeElement {
+    background-color: white;
+    height: 40px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+
+.success {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}    
+ 
+
+.successOrderSummary {
+    height: 60%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.success h1 {
+    font-size: 32px;
+}
+
+.success p {
+    font-size: 24px;
+}
+
+ </style><style type="text/css">.orders {
+    width: 80vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding: 24px;
+}
+
+.orderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}</style><style type="text/css">footer {
+    width: 100%;
+    background-color: black;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 24px;
+}</style></head>
+  <body data-gr-c-s-loaded="true">
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"><div><div><header><a class="linkHome" href="http://localhost:3000/#/">MK</a><a class="link" href="http://localhost:3000/#/information">Information</a><a class="link" href="http://localhost:3000/#/products">Products</a><div><a class="link" href="http://localhost:3000/#/login">Login | Register</a></div><a class="link" href="http://localhost:3000/#/cart"><i class="fas fa-shopping-cart"></i> 0</a><a class="w3-hide-small" target="_blank" href="https://squareup.com/appointments/book/EYR4MTRG6QT3E/my-business" rel="noopener noreferrer" style="background-color: rgb(252, 219, 219); color: black; text-decoration: none; height: 40px; text-transform: uppercase; letter-spacing: 1px; line-height: 38px; padding: 0px 28px; border-radius: 3px; font-weight: 600; font-size: 14px; cursor: pointer;">Book Now!</a><i class="fa fa-bars" aria-hidden="true"></i></header></div><div class="container"><div class="home"><div class="logo"><a class="logoLink" href="http://localhost:3000/#/"><p>Maria Kelley Lashes</p></a></div><div class="heroImage"><a href="http://localhost:3000/#/products"><button class="w3-btn w3-black w3-hide-small" style="font-size: 32px;">SHOP NOW</button></a></div></div></div><footer class="w3-pale-red"><i class="fab fa-facebook" style="margin-right: 16px;"></i><i class="fab fa-twitter" style="margin-right: 16px;"></i><a href="https://www.instagram.com/mariakelley.lashes/?hl=en" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></footer></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./Maria&#39;s Lashes_files/bundle.js"></script><script src="./Maria&#39;s Lashes_files/0.chunk.js"></script><script src="./Maria&#39;s Lashes_files/main.chunk.js"></script><script src="./Maria&#39;s Lashes_files/main.4fc8e8a5888da2921bb0.hot-update.js"></script>
+
+<iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeController0" allowpaymentrequest="true" src="./Maria&#39;s Lashes_files/controller-5598906ccf1bc5f44c96155f39b57719.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important;"></iframe><iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeMetricsController1" allowpaymentrequest="true" src="./Maria&#39;s Lashes_files/outer.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important;"></iframe></body></html>

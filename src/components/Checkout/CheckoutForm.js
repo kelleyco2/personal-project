@@ -3,7 +3,7 @@ import {CardElement, injectStripe} from 'react-stripe-elements';
 import Axios from 'axios';
 import { connect } from 'react-redux' 
 import { updateTotal, getCart } from '../../ducks/reducer'
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import './CheckoutForm.css'
 
 
@@ -64,11 +64,14 @@ class CheckoutForm extends Component {
   }
 
   render() {
-    // if(this.props.cart.length === 0){
-    //   return (
-    //     <Redirect to='/products'/>
-    //   )
-    // }
+    
+    if(window.screen.width <= 375){
+      if(this.props.cart.length === 0){
+        return (
+          <Redirect to='/products'/>
+        )
+      }
+    }
 
     let orderSummary = this.props.cart.map((item, i) => {
       return (
@@ -116,7 +119,7 @@ class CheckoutForm extends Component {
         :
         <div className='success'>
 
-          <div className='w3-card' style={{width: '80vw', height: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center', padding: '250px'}}>
+          <div className='successCard'>
             <h1>Payment Successful!</h1>
 
             <p>

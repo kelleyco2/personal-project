@@ -9,7 +9,7 @@ import {Elements, StripeProvider} from 'react-stripe-elements';
 
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
-import LashCare from './components/LashCare/LashCare'
+import AppointmentInfo from './components/AppointmentInfo/AppointmentInfo'
 import ProductsContainer from './components/Products/ProductsContainer'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
@@ -17,11 +17,19 @@ import Cart from './components/Cart/Cart'
 import CheckoutForm from './components/Checkout/CheckoutForm'
 import Orders from './components/Orders/Orders'
 import Footer from './components/Footer/Footer'
+import MobileNav from './components/MobileNav/MobileNav'
 
 import { clientLoggedIn, isAdmin, getCart } from './ducks/reducer'
 
 
 class App extends Component {
+  constructor(){
+    super()
+
+    this.state = {
+      mobileNav: false
+    }
+  }
 
   componentDidMount(){
     axios.get('/auth/currentClient').then(res => {
@@ -37,17 +45,34 @@ class App extends Component {
     })
   }
 
+  mobileNav = () => {
+    this.setState({
+      mobileNav: !this.state.mobileNav
+    })
+  }
+
+
   render() {
     return (
     <StripeProvider apiKey="pk_test_20rim5Rs9tOcoUv23igpp9nk">
-      <div>
+      <div className='app'>
+        {
+          this.state.mobileNav ?
+          <MobileNav
+          mobileNav={this.mobileNav}
+          />
+          :
+          null
+        }
         <div>
-          <Header/>
+          <Header
+          mobileNav={this.mobileNav}
+          />
         </div>
         <div className='container'>
           <Switch>
             <Route exact path='/' component={Home}/>
-            <Route path='/lashcare' component={LashCare}/>
+            <Route path='/information' component={AppointmentInfo}/>
             <Route path='/products' component={ProductsContainer}/>
             <Route path='/login' component={Login}/>
             <Route path='/register' component={Register}/>
