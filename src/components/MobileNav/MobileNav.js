@@ -8,9 +8,9 @@ class MobileNav extends Component {
     render(){
         return (
             <div id='sidenav' className='mobileNav'>
-                <button className='x' onClick={this.props.mobileNav}>
+                <p className='x' onClick={this.props.mobileNav}>
                     X
-                </button>
+                </p>
                     <Link to='/products' className='sidenavLinks'>Products</Link>
                     {
                         this.props.isAuthenticated ?

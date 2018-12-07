@@ -5,6 +5,7 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import { connect } from 'react-redux' 
 import {Elements, StripeProvider} from 'react-stripe-elements';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group' 
 
 
 import Header from './components/Header/Header'
@@ -56,14 +57,21 @@ class App extends Component {
     return (
     <StripeProvider apiKey="pk_test_20rim5Rs9tOcoUv23igpp9nk">
       <div className='app'>
+      <ReactCSSTransitionGroup
+      component='div'
+      transitionName='example'
+      transitionEnterTimeout={500}
+      transitionLeaveTimeout={300}>
         {
           this.state.mobileNav ?
           <MobileNav
+          key='mobile'
           mobileNav={this.mobileNav}
           />
           :
           null
         }
+      </ReactCSSTransitionGroup>
         <div>
           <Header
           mobileNav={this.mobileNav}

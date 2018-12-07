@@ -1,25 +1,30 @@
+
+
 @media(max-width: 375px){
     .mobileNav{
         display: flex;
         flex-direction: column;
         height: 100%;
         align-items: flex-end;
-        width: 250px;
+        width: 200px;
         position: fixed;
         z-index: 1;
         top: 0;
         right: 0;
         background-color: #202020;
         overflow-x: hidden;
-        padding-top: 50px;
-        transition: 0.5s;
+        padding: 24px;
     }
     
     .sidenavLinks{
-        color: #FBFBFB
-    }
-
-    .x {
         color: #FBFBFB;
+        text-decoration: none;
+        font-size: 32px;
+        margin: 32px 0;
+    }
+    
+    .x{
+        color: #FBFBFB;
+        font-size: 32px;
     }
 }

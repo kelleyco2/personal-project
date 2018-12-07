@@ -1,5 +1,5 @@
 .lashCareContainer {
-    height: 1300px;
+    height: 325vh;
     padding: 80px;
     display: flex;
     flex-direction: column;
@@ -7,10 +7,14 @@
 }
 
 .lashCareContainer p {
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .lashCareContainer img {
+    margin-right: 40px;
+}
+
+.lashCareContainer i {
     margin-right: 40px;
 }
 
@@ -19,8 +23,40 @@
     display: flex;
     align-items: center;
     line-height: 1.8;
+    margin-bottom: 60px;
 }
 
+.post {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.insta {
+    border-left: 10px solid #FFDDDC;
+    /* border-right: 10px solid #FFDDDC; */
+    /* padding: 10px; */
+}
+
+
+.listItems {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 48px;
+}
+
+.listItems1 {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#tooBig {
+    margin-top: 100px;
+}
 @media(max-width: 375px){
     .textContainer img {
         width: 50px;
@@ -36,6 +72,17 @@
         padding: 24px;
         height: 250vh;
         justify-content: space-around;
+    }
+
+    .insta {
+        display: none;
+    }
+    
+}
+
+@media(max-width: 1100px){
+    .lashCareContainer p {
+        font-size: 2vw;
     }
 }
 

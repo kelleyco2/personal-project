@@ -12,6 +12,7 @@
     "express-session": "^1.15.6",
     "massive": "^5.5.3",
     "react": "^16.6.3",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.6.3",
     "react-favicon": "0.0.14",
     "react-instagram-embed": "^1.4.1",

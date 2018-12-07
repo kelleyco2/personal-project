@@ -8,6 +8,24 @@ input:focus {
   outline: none;
 }
 
+.example-enter{
+  width: 0;
+}
+
+.example-enter.example-enter-active{
+  width: 200;
+  transition: width 500ms ease-in;
+}
+
+.example-leave{
+  width: 200;
+}
+
+.example-leave.example-leave-active {
+  width: 0;
+  transition: width 300ms ease-in;
+}
+
 /* @media(){
   .mobileNav{
     display: flex;
