@@ -31,7 +31,7 @@ class Home extends Component {
 
                     <Link to='/products'>
                         <button style={{
-                            fontSize: '32px'
+                            fontSize: '28px'
                         }}
                         className='w3-btn w3-black w3-hide-small'
                         >

@@ -7,17 +7,21 @@
 }
 
 .lashCareContainer p {
-    font-size: 25px;
+    font-size: 22px;
+    /* background-color: #FFDDDC; */
+    border-left: 4px solid #FFDDDC;
+    padding: 16px;
 }
 
 .lashCareContainer img {
     margin-right: 40px;
+    /* border-left: 10px solid #FFDDDC; */
 }
 
 .lashCareContainer i {
     margin-right: 40px;
 }
-
+ 
 .textContainer {
     height: 100px;
     display: flex;
@@ -33,9 +37,9 @@
 }
 
 .insta {
-    border-left: 10px solid #FFDDDC;
-    /* border-right: 10px solid #FFDDDC; */
-    /* padding: 10px; */
+    /* border-left: 10px solid #FFDDDC;
+    border-right: 10px solid #FFDDDC;
+    padding: 10px; */
 }
 
 
