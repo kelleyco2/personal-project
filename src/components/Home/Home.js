@@ -29,15 +29,22 @@ class Home extends Component {
 
                 <div className='heroImage'>
 
-                    <Link to='/products'>
-                        <button style={{
-                            fontSize: '28px'
-                        }}
-                        className='w3-btn w3-black w3-hide-small'
-                        >
-                            SHOP NOW
-                        </button>
-                    </Link>
+                    <div className='heroImageStuff'>
+                        <h1>Aftercare</h1>
+
+                        <p>Products now available</p>
+
+                        <Link to='/products'>
+                            <button style={{
+                                fontSize: '20px'
+                            }}
+                            className='w3-btn w3-black w3-hide-small'
+                            >
+                                SHOP NOW
+                            </button>
+                        </Link>
+                    </div>
+
 
                 </div>
 

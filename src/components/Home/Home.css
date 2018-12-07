@@ -10,6 +10,27 @@
     color: #FBFBFB;
 }
 
+.heroImageStuff {
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.heroImageStuff h1 {
+    /* font-family: 'La Belle Aurore', cursive; */
+    font-size: 42px;
+    color: #202020;
+    font-weight: 500;
+}
+
+.heroImageStuff p {
+    font-size: 32px;
+    font-family: 'La Belle Aurore', cursive;
+    color: #202020;
+}
+
 .logo {
     background-color: #FBFBFB;
     height: 11vh;
@@ -48,6 +69,18 @@
 
     .info {
         display: inline;
+    }
+
+    .heroImageStuff {
+        display: none;
+    }
+
+    .heroImageStuff h1 {
+        font-size: 16px;
+    }
+
+    .heroImageStuff p {
+        font-size: 16px;
     }
 
 

@@ -1,29 +1,34 @@
 import React from 'react'
-import InstagramEmbed from 'react-instagram-embed' 
+// import InstagramEmbed from 'react-instagram-embed' 
 import './AppointmentInfo.css' 
+import eyes from '../../Assets/eyes.jpg'
+import eyes1 from '../../Assets/eyes1.jpg'
+import eyes2 from '../../Assets/eyes2.jpg'
+import eyes3 from '../../Assets/eyes3.jpg'
 
 export default function (props){
     return(
         <div className='lashCareContainer'>
             <div className='post'>
                 <div className='insta'>
-                    <InstagramEmbed 
+                    {/* <InstagramEmbed 
                         url='https://www.instagram.com/p/BrCKUA-HrkL/'
                         maxWidth={320}
                         hideCaption={true}
-                    />
+                    /> */}
+                    <img className='bigImages' src={eyes} alt=''/>
                 </div>
 
                 <div className='listItems'>
 
-                    <div className='textContainer' id='tooBig'>
+                    <div className='textContainer'>
                         <div>
                             <img src='https://static.thenounproject.com/png/1461744-200.png' className='w3-bar-item' alt='' width='80px' height='80px'/>
                             {/* <i class="fas fa-circle"></i> */}
                         </div>
                         <div>
                             <p>
-                                Realistic expectations are important when getting eyelash estensions. I can only put on extensions that your natural lash can support. If you have few lashes or they are short and thin then unfortunately I can't put long/thick extensions on. I would never hurt the health of your natural lash.
+                                Realistic expectations are important when getting extensions. I can only put on extensions your natural lash can support. If you have few lashes or they're short/thin then unfortunately I can't put long/thick extensions on.
                             </p>
                         </div>
                     </div>
@@ -34,7 +39,7 @@ export default function (props){
                         </div>
                         <div>
                             <p>
-                                Make sure you don't have any make up on when you come in for your appointments. It is very important that I have squeaky clean lashes so the glue will adhere to your lash. 
+                                Classic full sets take up to 2 hours and fills take an hour.
                             </p>
                         </div>
                     </div>
@@ -44,7 +49,7 @@ export default function (props){
 
             <div className='post'>
 
-                <div className='listItems1'>
+                <div className='listItems'>
 
                     <div className='textContainer'>
                         <div>
@@ -52,7 +57,7 @@ export default function (props){
                         </div>
                         <div>
                             <p>
-                                Classic full sets take up to 2 hours and fills take an hour.
+                            Make sure you don't have any make up on when you come in for your appointments. It is very important that I have squeaky clean lashes so the glue will adhere to your lash. 
                             </p>
                         </div>
                     </div>
@@ -70,22 +75,24 @@ export default function (props){
 
                 </div>
                 <div className='insta'>
-                    <InstagramEmbed 
+                    {/* <InstagramEmbed 
                         url='https://www.instagram.com/p/BoRmVqFjcCs/'
                         maxWidth={320}
                         hideCaption={true}
-                    />
+                    /> */}
+                    <img className='bigImages' src={eyes1} alt=''/>
                 </div>
 
             </div>
 
             <div className='post'>
             <div className='insta'>
-                <InstagramEmbed 
+                {/* <InstagramEmbed 
                 url='https://www.instagram.com/p/BoRkt75DQui/'
                 maxWidth={320}
                 hideCaption={true}
-                />
+                /> */}
+                <img className='bigImages' src={eyes2} alt=''/>
             </div>
                 <div className='listItems'>
 
@@ -115,7 +122,7 @@ export default function (props){
             </div>
 
             <div className='post'>
-                <div className='listItems1'>
+                <div className='listItems'>
                     <div className='textContainer'>
                         <div>
                             <img src='https://static.thenounproject.com/png/1461744-200.png' className='w3-bar-item' alt='' width='80px' height='80px'/>
@@ -138,11 +145,12 @@ export default function (props){
                     </div>
                 </div>
                 <div className='insta'>
-                    <InstagramEmbed 
+                    {/* <InstagramEmbed 
                         url='https://www.instagram.com/p/Bpj-jd1h_hK/'
                         maxWidth={320}
                         hideCaption={true}
-                        />
+                        /> */}
+                        <img className='bigImages' src={eyes3} alt=''/>
                 </div>
             </div>
 
