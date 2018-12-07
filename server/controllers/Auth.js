@@ -4,7 +4,8 @@ module.exports = {
     login: async (req, res) => {
         try{
             const db = req.app.get('db')
-            const { email, password } = req.body
+            let { email, password } = req.body
+            email = email.toLowerCase()
 
             let clientResponse = await db.getClientByEmail(email)
             let client = clientResponse[0]
@@ -31,7 +32,8 @@ module.exports = {
     register: async (req, res) => {
         try{
             const db = req.app.get('db')
-            const { name, email, password } = req.body
+            let { name, email, password } = req.body
+            email = email.toLowerCase()
 
             let clientResponse = await db.getClientByEmail(email)
 
