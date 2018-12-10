@@ -37,7 +37,7 @@ class CheckoutForm extends Component {
   async submit(ev) {
     let {token} = await this.props.stripe.createToken({name: "Name"});
 
-    let response = await Axios.post('/charge', {headers:{'Content-Type': 'text/plain'}, data:{token: token.id}, amount: this.props.total * 100})
+    let response = await Axios.post('/charge', {headers:{'Content-Type': 'text/plain'}, data:{token: token.id}, amount: this.props.total * 100, cart: this.props.cart})
 
     console.log(response)
     console.log('Payment Success!')
@@ -64,7 +64,7 @@ class CheckoutForm extends Component {
   }
 
   render() {
-    
+
     if(window.screen.width <= 375){
       if(this.props.cart.length === 0){
         return (

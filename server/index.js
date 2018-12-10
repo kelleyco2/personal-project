@@ -6,6 +6,23 @@ const massive = require('massive')
 const bodyParser = require('body-parser')
 const stripe = require('stripe')("sk_test_z2BLRg49ADmItyb3eVpKwt4y")
 // const path = require('path')
+const nodemailer = require('nodemailer')
+const xoauth2 = require('xoauth2')
+
+const { CONNECTION_STRING, SERVER_PORT: PORT, SESSION_SECRET, CLIENT_SECRET, MY_EMAIL, ACCESS_TOKEN } = process.env
+
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        type: 'OAuth2',
+        user: MY_EMAIL,
+        clientId: '400127848908-jjkhvt5p7jj3cklc4kfc0pgc8sg32rc7.apps.googleusercontent.com',
+        clientSecret: CLIENT_SECRET,
+        refreshToken: '1/KjUUBYhyQ4jcB-W37UGjR4ZWAmeztoq95T152Vchiz4',
+        accessToken: ACCESS_TOKEN
+    }
+})
+
 
 const ac = require('./controllers/Auth')
 const pc = require('./controllers/ProductsController')
@@ -15,7 +32,6 @@ const oc = require('./controllers/OrderController')
 
 const app = express()
 
-const { CONNECTION_STRING, SERVER_PORT: PORT, SESSION_SECRET } = process.env
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
@@ -25,9 +41,9 @@ massive(CONNECTION_STRING).then(db => {
 app.use(bodyParser.json())
 
 app.use(session({
-  secret: SESSION_SECRET,
-  resave: true,
-  saveUninitialized: false
+    secret: SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false
 }))
 
 app.use( express.static( `${__dirname}/../build` ) );
@@ -43,6 +59,18 @@ app.delete('/api/products/:id', pc.deleteProduct)
 app.put('/api/products/:id', pc.updateProduct)
 
 app.post('/charge', async (req, res) => {
+    var order = req.body.cart.map(item => {
+        return `${item.title} x ${item.quantity} @ $${item.price}`
+    })
+    order = order.join('\n')
+    var mailOptions = {
+        from: 'Cooper',
+        to: req.session.client.email,
+        subject: 'Maria Kelley Lashes',
+        text: `Transaction Complete
+Items: ${order}
+Total: $${req.body.amount / 100}`
+    }
     try {
         let {status} = await stripe.charges.create({
             amount: req.body.amount,
@@ -52,6 +80,14 @@ app.post('/charge', async (req, res) => {
         })
 
         res.json({status})
+
+        transporter.sendMail(mailOptions, function (err, res){
+            if(err){
+                console.log('Error', err)
+            } else {
+                console.log('Email Sent')
+            }
+        })
     } catch(err){
         console.log('Payment:', err)
         res.status(500).end()
