@@ -1,87 +1,84 @@
 .heroImage {
-    background-image: url('//cdn.shopify.com/s/files/1/0163/4078/t/61/assets/homepage_hero_image_1.jpg?16574939919270013573');
-    width: 100%;
-    height: 80vh;
-    background-size: cover;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 135px;
-    color: #FBFBFB;
+  background-image: url("../../Assets/Blue+Eyes+Training+Photo.jpeg");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 135px;
+  color: #fbfbfb;
 }
 
 .heroImageStuff {
-    display: flex;
-    flex-direction: column;
-    height: 25vh;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  height: 25vh;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .heroImageStuff h1 {
-    /* font-family: 'La Belle Aurore', cursive; */
-    font-size: 42px;
-    color: #202020;
-    font-weight: 500;
+  /* font-family: 'La Belle Aurore', cursive; */
+  font-size: 42px;
+  color: #202020;
+  font-weight: 500;
 }
 
 .heroImageStuff p {
-    font-size: 32px;
-    font-family: 'La Belle Aurore', cursive;
-    color: #202020;
+  font-size: 32px;
+  font-family: "La Belle Aurore", cursive;
+  color: #202020;
 }
 
 .logo {
-    background-color: #FBFBFB;
-    height: 11vh;
-    /* font-family: 'Cedarville Cursive', cursive; */
-    font-family: 'La Belle Aurore', cursive;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
+  background-color: #fbfbfb;
+  height: 11vh;
+  font-family: "La Belle Aurore", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
 }
 
 .logoLink {
-    color: #202020;
-    text-decoration: none;
+  color: #202020;
+  text-decoration: none;
 }
 
 .mobileNav {
-    display: none;
+  display: none;
 }
 
 .info {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 375px) {
-    .logo {
-        font-size: 35px;
-        height: 8vh;
-    }
+  .logo {
+    font-size: 35px;
+    height: 8vh;
+  }
 
-    .heroImage {
-        height: 30vh;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
+  .heroImage {
+    height: 30vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
 
-    .info {
-        display: inline;
-    }
+  .info {
+    display: inline;
+  }
 
-    .heroImageStuff {
-        display: none;
-    }
+  .heroImageStuff {
+    display: none;
+  }
 
-    .heroImageStuff h1 {
-        font-size: 16px;
-    }
+  .heroImageStuff h1 {
+    font-size: 16px;
+  }
 
-    .heroImageStuff p {
-        font-size: 16px;
-    }
-
-
+  .heroImageStuff p {
+    font-size: 16px;
+  }
 }
