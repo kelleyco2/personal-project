@@ -64,11 +64,11 @@ class Header extends Component {
           Book Now!
         </a> */}
 
-        <i
+        {/* <i
           className="fa fa-bars"
           aria-hidden="true"
           onClick={this.props.mobileNav}
-        />
+        /> */}
       </header>
     );
   }
